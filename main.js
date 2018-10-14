@@ -251,6 +251,14 @@ function pronounce(e) {
   speechSynthesis.speak(msg);
 }
 
+    function play() {
+      if ('speechSynthesis' in window) {
+        console.log("The API is installed");
+        var ssu = new SpeechSynthesisUtterance("hello world");
+        window.speechSynthesis.speak(ssu);
+      }
+    }
+
 function prev() {
   i--;
   if (i < 0) i = vocab.length - 1;
