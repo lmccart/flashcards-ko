@@ -290,9 +290,6 @@ $(document).ready(function() {
   $('#prev').click(prev);
   $('#next').click(next);
   $('.card').click(flip);
-  $('#front p').click(function(e) {
-    e.stopPropagation();
-  });
   $('#shuffle .button').click(shuffle);
   $('#rate').change(function() {
     rate = $(this).val()/10;
