@@ -232,18 +232,32 @@ $(document).ready(function() {
   $('#prev').click(prev);
   $('#next').click(next);
   $('#shuffle .button').click(shuffle);
-  $('.card').click(flip);
+//  $('.card').click(flip);
   $('#rate').change(function() {
     rate = $(this).val()/10;
     $(this).blur();
   })
 
-  $(window).on('swiperight', function() {
-    console.log('swipe')
+  $('.card').on('swiperight', function(e) {
+     e.preventDefault();
+    e.stopPropagation();
     prev();
+    return false;
   });
-  $(window).on('swipeleft', function() {
+  $('.card').on('swipeleft', function(e) {
+    console.log(e)
+     e.preventDefault();
+    e.stopPropagation();
     next();
+    return false;
+  });
+
+  $('.card').tap(function(e) {
+    console.log(e)
+    e.stopPropagation();
+     e.preventDefault();
+      flip();
+    return false;
   });
 
   function setCards() {
