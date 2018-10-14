@@ -231,24 +231,34 @@ $(document).ready(function() {
 
   $('#prev').click(prev);
   $('#next').click(next);
+  $('.card').click(flip);
   $('#shuffle .button').click(shuffle);
   $('#rate').change(function() {
     rate = $(this).val()/10;
     $(this).blur();
   })
 
-  $('.card').on('swiperight', function(e) {
-    e.preventDefault();
-    prev();
-  });
-  $('.card').on('swipeleft', function(e) {
-    e.preventDefault();
-    next();
-  });
+  // $('.card').on('swiperight', function(e) {
+  //   e.preventDefault();
+  //   prev();
+  // });
+  // $('.card').on('swipeleft', function(e) {
+  //   e.preventDefault();
+  //   next();
+  // });
 
-  $('.card').tap(function(e) {
-    e.preventDefault();
-    flip();
+  // $('.card').tap(function(e) {
+  //   e.preventDefault();
+  //   flip();
+  // });
+  $('.card').touchwipe({
+     wipeLeft: next,
+     wipeRight: prev,
+     wipeUp: function() { alert("up"); },
+     wipeDown: function() { alert("down"); },
+     min_move_x: 20,
+     min_move_y: 20,
+     preventDefaultEvents: true
   });
 
   function setCards() {
