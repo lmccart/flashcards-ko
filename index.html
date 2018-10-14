@@ -118,6 +118,17 @@
 </head>
 
 <body>
+
+    <button onclick="play()" style='z-index:10; position: absolute; top: 0; left: 100px'>Play</button>
+  <script>
+    function play() {
+      if ('speechSynthesis' in window) {
+        console.log("The API is installed");
+        var ssu = new SpeechSynthesisUtterance("hello world");
+        window.speechSynthesis.speak(ssu);
+      }
+    }
+  </script>
   <div id='prev' class='button sidebutton'>
     <div class='aligner'>
       <p class='aligner-item'>&lt;</p>
