@@ -241,13 +241,14 @@ function setCards() {
     $('#back p').removeClass('small');
   }
 
-  if (side == 0 && !mobile) {
+  if (side == 0) {
     pronounce();
   }
   window.location.hash = '#'+i;
 }
 
 function pronounce(e) {
+  if (mobile) return;
   var msg = new SpeechSynthesisUtterance(vocab[i][0]);
   msg.lang = 'ko-KR';
   msg.rate = rate;
