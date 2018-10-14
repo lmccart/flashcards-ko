@@ -243,20 +243,12 @@ function setCards() {
   window.location.hash = '#'+i;
 }
 
-function pronounce() {
+function pronounce(e) {
   var msg = new SpeechSynthesisUtterance(vocab[i][0]);
-  msg.lang = 'ko-KR';
-  // msg.rate = rate;
+  // msg.lang = 'ko-KR';
+  msg.rate = rate;
   window.speechSynthesis.speak(msg);
 }
-
-    function play() {
-      if ('speechSynthesis' in window) {
-        console.log("The API is installed");
-        var ssu = new SpeechSynthesisUtterance("hello world");
-        window.speechSynthesis.speak(ssu);
-      }
-    }
 
 function prev() {
   i--;
