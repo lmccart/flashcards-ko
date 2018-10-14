@@ -220,6 +220,7 @@ var vocab = [
 var i = parseInt(window.location.hash.substring(1)) || 0;
 var side = 0;
 var rate = 1;
+var voice;
 
 function setCards() {
   console.log(i)
@@ -248,7 +249,7 @@ function pronounce(e) {
   msg.text = vocab[i][0];
   msg.lang = 'ko-KR';
   msg.rate = rate;
-  msg.name = 'Yuna';
+  msg.voice = voice;
   console.log(msg)
   window.speechSynthesis.speak(msg);
 }
@@ -283,6 +284,15 @@ function flip() {
 }
 $(document).ready(function() {
   setCards();
+
+  var voices = speechSynthesis.getVoices();
+  for (var v in voices) {
+    if (v.name === 'Yuna') {
+      console.log(voices[v]);
+      voice = v;
+    }
+  }
+
   $('body').keydown(function(e) {
     if (e.which === 37) prev();
     else if (e.which === 39) next(); 
