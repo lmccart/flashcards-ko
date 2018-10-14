@@ -32,6 +32,63 @@ $(document).ready(function() {
     ['쌀', 'rice'],
     ['발', 'foot'],
     ['팔', 'arm'],
+    ['아이', 'child'],
+    ['오이', 'cucumber'],
+    ['우유', 'milk'],
+    ['여우', 'fox'],
+    ['여유', 'rest'],
+    ['유아', 'toddler'],
+    ['가구', 'furniture'],
+    ['나무', 'tree'],
+    ['구두', 'shoes'],
+    ['가수', 'singer'],
+    ['아기', 'baby'],
+    ['바지', 'pants'],
+    ['호수', 'lake'],
+    ['두부', 'tofu'],
+    ['치마', 'skirt'],
+    ['모자', 'hat'],
+    ['바나나', 'banana'],
+    ['기러기', 'goose'],
+    ['호두', 'walnut'],
+    ['노루', 'deer'],
+    ['허리', 'waist'],
+    ['하루', 'day'],
+    ['코', 'nose'],
+    ['머리띠', 'head band'],
+    ['뿌리', 'root'],
+    ['포도', 'grapes'],
+    ['자다', 'sleep'],
+    ['짜다', 'salty'],
+    ['차다', 'cool'],
+    ['기차', 'train'],
+    ['기타', 'guitar'],
+    ['사다', 'buy'],
+    ['싸다', 'cheap'],
+    ['비싸다', 'expensive'],
+    ['쓰다', 'write/use/bitter'],
+    ['꼬마', 'child'],
+    ['토끼', 'rabbit'],
+    ['도끼', 'axe'],
+    ['바쁘다', 'busy'],
+    ['아프다', 'sick'],
+    ['자동차', 'car'],
+    ['뽀뽀', 'kiss'],
+    ['짜장면', 'black noodle'],
+    ['짬뽕', 'spicy noodle'],
+    ['개미', 'ant'],
+    ['예절', 'manner'],
+    ['실례', 'bad manner'],
+    ['얘기', 'story'],
+    ['가게', 'store'],
+    ['시계', 'clock/watch'],
+    ['과자', 'snack'],
+    ['돼지', 'pig'],
+    ['회사', 'company'],
+    ['귀', 'ear '],
+    ['외우다', 'remember'],
+    ['웨이터', 'waiter'],
+    ['의자', 'chair'],
     ['서울', 'Seoul'],
     ['일본', 'Japan'],
     ['교실', 'classroom'],
@@ -41,6 +98,7 @@ $(document).ready(function() {
     ['여덟', 'eight'],
     ['봄', 'spring'],
     ['엄마', 'mom'],
+    ['아빠', 'dad'],
     ['사람', 'person'],
     ['김치', 'kimchi'],
     ['인삼', 'ginseng'],
@@ -73,6 +131,8 @@ $(document).ready(function() {
     ['재미있다', 'interesting'],
     ['재미없다', 'bored'],
     ['과일', 'Fruits'],
+    // jobs
+    ['직업 이뭐예요?', 'What is your job?'],
     ['직업', 'job'],
     ['지겁', 'job'],
     ['선생님', 'teacher'],
@@ -107,7 +167,54 @@ $(document).ready(function() {
     ['사람', 'person'],
     ['인', 'person'],
     ['어', 'language'],
-    ['영어', 'English']
+    ['영어', 'English'],
+    ['국적 이 뭐예요', 'What is your nationality?'],
+    ['어느 나라 사람 이에요', 'Where are you from?'],
+    ['직업 이뭐예요?', 'What is your job?'],
+    ['저는', 'I'],
+    // weather
+    ['오늘 날씨가 어때요?', 'How’s the weather today?'],
+    ['날씨가 좋아요', 'it’s nice weather'],
+    ['날씨가 나빠요', 'it’s bad weather'],
+    ['흐려요', 'it’s cloudy'],
+    ['따뜻해요', 'it’s warm'],
+    ['더워요', 'it’s hot'],
+    ['추워요', 'it’s cold'],
+    ['시원해요', 'it’s cool'],
+    ['비가와요', 'it’s rainy'],
+    ['눈이와요', 'it’s snowy'],
+    ['바람이 불어요', 'it’s windy'],
+    // how are you
+    ['오늘 기분이 어때요?', 'How are you today?'],
+    ['화가나요', 'i’m angry'],
+    ['짜증나요', 'i’m annoyed'],
+    ['심심해요', 'i’m bored'],
+    ['가슴아파요', 'i’m heartbroken'],
+    ['편해요', 'i’m comfortable'],
+    ['궁금해요', 'i’m curious'],
+    ['우울해요', 'i’m depressed'],
+    ['부끄러워요', 'i’m shy'],
+    ['신나요', 'i’m excited'],
+    ['답답해요', 'i’m frustrated'],
+    ['행복해요', 'i’m happy'],
+    ['배고파요', 'i’m hungry'],
+    ['외로워요', 'i’m lonely'],
+    ['슬퍼요', 'i’m sad'],
+    ['무서워요', 'i’m scared'],
+    ['피곤해요', 'i’m tired'],
+    ['놀라워요', 'i’m surprised'],
+    ['부러워요', 'i’m envious'],
+    ['고민되요', 'i’m worried'],
+    // set phrases
+    ['잘먹겠습니다', 'before eating'],
+    ['잘먹었습니다', 'after eating'],
+    ['다녀오겠습니다', 'when you leave home'],
+    ['다녀오세요', 'when family members leave home'],
+    ['다녀왔습니다', 'when you return home'],
+    ['어서오세요', 'when family members return home'],
+    ['안녕히 주무세요', 'before bed'],
+    ['안녕히 주무셨어요?', 'when waking up']
+
   ];
 
   var i = parseInt(window.location.hash.substring(1)) || 0;
@@ -120,7 +227,6 @@ $(document).ready(function() {
     else if (e.which === 39) next(); 
     else if (e.which === 32) shuffle();
     else if (e.which === 38 || e.which === 40) flip();
-    console.log(e.which)
   })
 
   $('#prev').click(prev);
@@ -136,6 +242,19 @@ $(document).ready(function() {
     console.log(i)
     $('#front p').text(vocab[i][0]);
     $('#back p').text(vocab[i][1]);
+
+    if (vocab[i][0].length > 7) {
+      $('#front p').addClass('small');
+    } else {
+      $('#front p').removeClass('small');
+    }
+    if (vocab[i][1].length > 10) {
+      $('#back p').addClass('small');
+    } else {
+      $('#back p').removeClass('small');
+    }
+
+
     if (side == 0) {
       pronounce();
     }
