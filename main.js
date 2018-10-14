@@ -249,6 +249,7 @@ function setCards() {
 
 function pronounce(e) {
   if (mobile) return;
+  window.speechSynthesis.cancel();
   var msg = new SpeechSynthesisUtterance(vocab[i][0]);
   msg.lang = 'ko-KR';
   msg.rate = rate;
