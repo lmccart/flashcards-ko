@@ -238,27 +238,9 @@ $(document).ready(function() {
     $(this).blur();
   })
 
-  $('.card').on('swiperight', function(e) {
-     e.preventDefault();
-    e.stopPropagation();
-    prev();
-    return false;
-  });
-  $('.card').on('swipeleft', function(e) {
-    console.log(e)
-     e.preventDefault();
-    e.stopPropagation();
-    next();
-    return false;
-  });
-
-  $('.card').tap(function(e) {
-    console.log(e)
-    e.stopPropagation();
-     e.preventDefault();
-      flip();
-    return false;
-  });
+  $('.card').on('swiperight', prev);
+  $('.card').on('swipeleft', next);
+  $('.card').tap(flip);
 
   function setCards() {
     console.log(i)
