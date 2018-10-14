@@ -238,6 +238,13 @@ $(document).ready(function() {
     $(this).blur();
   })
 
+  $(window).on('swiperight', function() {
+    prev();
+  });
+  $(window).on('swipeleft', function() {
+    next();
+  });
+
   function setCards() {
     console.log(i)
     $('#front p').text(vocab[i][0]);
