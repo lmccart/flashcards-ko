@@ -288,9 +288,9 @@ $(document).ready(function() {
   var voices = speechSynthesis.getVoices();
   console.log(voices)
   for (var v in voices) {
-    if (v.name === 'Yuna') {
+    if (voices[v].name === 'Yuna') {
       console.log(voices[v]);
-      voice = v;
+      voice = voices[v];
     }
   }
 
