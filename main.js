@@ -238,9 +238,19 @@ $(document).ready(function() {
     $(this).blur();
   })
 
-  $('.card').on('swiperight', prev);
-  $('.card').on('swipeleft', next);
-  $('.card').tap(flip);
+  $('.card').on('swiperight', function(e) {
+    e.preventDefault();
+    prev();
+  });
+  $('.card').on('swipeleft', function(e) {
+    e.preventDefault();
+    next();
+  });
+
+  $('.card').tap(function(e) {
+    e.preventDefault();
+    flip();
+  });
 
   function setCards() {
     console.log(i)
