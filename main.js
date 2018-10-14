@@ -232,7 +232,6 @@ $(document).ready(function() {
   $('#prev').click(prev);
   $('#next').click(next);
   $('#shuffle .button').click(shuffle);
-//  $('.card').click(flip);
   $('#rate').change(function() {
     rate = $(this).val()/10;
     $(this).blur();
@@ -251,10 +250,6 @@ $(document).ready(function() {
     e.preventDefault();
     flip();
   });
-
-  $(window).scroll(function(e) {
-    e.preventDefault();
-  })
 
   function setCards() {
     console.log(i)
