@@ -301,8 +301,6 @@ $(document).ready(function() {
   $('.card').touchwipe({
      wipeLeft: next,
      wipeRight: prev,
-     wipeUp: function() { alert("up"); },
-     wipeDown: function() { alert("down"); },
      min_move_x: 20,
      min_move_y: 20,
      preventDefaultEvents: true
