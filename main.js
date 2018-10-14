@@ -167,6 +167,9 @@ var vocab = [
   ['인', 'person'],
   ['어', 'language'],
   ['영어', 'English'],
+  ['한국어', 'Korean'],
+  ['중국어', 'Chinese'],
+  ['일본어', 'Japanese'],
   ['국적 이 뭐예요', 'What is your nationality?'],
   ['어느 나라 사람 이에요', 'Where are you from?'],
   ['직업 이뭐예요?', 'What is your job?'],
@@ -212,7 +215,43 @@ var vocab = [
   ['다녀왔습니다', 'when you return home'],
   ['어서오세요', 'when family members return home'],
   ['안녕히 주무세요', 'before bed'],
-  ['안녕히 주무셨어요?', 'when waking up']
+  ['안녕히 주무셨어요?', 'when waking up'],
+  // day of week
+  ['오늘 무슨요일 이에요?', 'what day of the week today?'],
+  ['오늘은 _______ 이에요', 'today is _______'],
+  ['월요일', 'monday'],
+  ['화요일', 'tuesday'],
+  ['수요일', 'wednesday'],
+  ['목요일', 'thursday'],
+  ['금요일', 'friday'],
+  ['토요일', 'saturday'],
+  ['일요일', 'sunday'],
+  ['요일', 'day of the week'],
+  ['어제', 'yesterday'],
+  ['오늘', 'today'],
+  ['내일', 'tomorrow'],
+  // activities
+  ['오늘 뭐해요?', 'what are you doing today?'],
+  ['내일 뭐해요?', 'what are you doing tomorrow?'],
+  ['학교에 가요', 'go to school'],
+  ['공부를 해요', 'studying'],
+  ['회사에 가요', 'go to work'],
+  ['친구를 만나요', 'meet friend'],
+  ['운동을 해요', 'exercise'],
+  ['음악을 들어요', 'listen music'],
+  ['피아노를 쳐요', 'playing piano'],
+  ['컴퓨터를 해요', 'playing computer'],
+  ['텔레비전을 봐요', 'watching tv'],
+  ['책을 읽어요', 'reading book'],
+  ['쇼핑을 해요', 'shopping'],
+  ['요리를 해요', 'cooking'],
+  ['청소를 해요', 'cleaning'],
+  ['숙제를 해요', 'do homework'],
+  ['낮잠을 자요', 'take nap'],
+  ['그림을 그려요', 'drawing'],
+  ['수영을 해요', 'swimming'],
+
+
 
 ];
 
@@ -222,7 +261,7 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 }
 var i = parseInt(window.location.hash.substring(1)) || 0;
 var side = 0;
-var rate = 1;
+var rate = 0.75;
 
 function setCards() {
   console.log(i)
@@ -252,7 +291,6 @@ function pronounce(e) {
   var msg = new SpeechSynthesisUtterance(vocab[i][0]);
   msg.lang = 'ko-KR';
   msg.rate = rate;
-  // msg.voice = voice;
   window.speechSynthesis.speak(msg);
 }
 
