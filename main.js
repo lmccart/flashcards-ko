@@ -252,6 +252,10 @@ $(document).ready(function() {
     flip();
   });
 
+  $(window).scroll(function(e) {
+    e.preventDefault();
+  })
+
   function setCards() {
     console.log(i)
     $('#front p').text(vocab[i][0]);
