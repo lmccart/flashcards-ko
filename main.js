@@ -1,4 +1,3 @@
-
 var vocab = [
   ['벽', 'wall'],
   ['부엌', 'kitchen'],
@@ -217,6 +216,10 @@ var vocab = [
 
 ];
 
+var mobile = false;
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ mobile = true;
+}
 var i = parseInt(window.location.hash.substring(1)) || 0;
 var side = 0;
 var rate = 1;
@@ -238,7 +241,7 @@ function setCards() {
     $('#back p').removeClass('small');
   }
 
-  if (side == 0) {
+  if (side == 0 && !mobile) {
     pronounce();
   }
   window.location.hash = '#'+i;
