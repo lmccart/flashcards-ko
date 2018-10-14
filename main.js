@@ -239,6 +239,7 @@ $(document).ready(function() {
   })
 
   $(window).on('swiperight', function() {
+    console.log('swipe')
     prev();
   });
   $(window).on('swipeleft', function() {
