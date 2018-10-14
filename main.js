@@ -223,7 +223,6 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 var i = parseInt(window.location.hash.substring(1)) || 0;
 var side = 0;
 var rate = 1;
-var voice;
 
 function setCards() {
   console.log(i)
@@ -287,15 +286,6 @@ function flip() {
 }
 $(document).ready(function() {
   setCards();
-
-  var voices = speechSynthesis.getVoices();
-  console.log(voices)
-  for (var v in voices) {
-    if (voices[v].name === 'Yuna') {
-      console.log(voices[v]);
-      voice = voices[v];
-    }
-  }
 
   $('body').keydown(function(e) {
     if (e.which === 37) prev();
