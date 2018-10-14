@@ -249,6 +249,7 @@ function pronounce(e) {
   msg.lang = 'ko-KR';
   msg.rate = rate;
   msg.name = 'Yuna';
+  console.log(msg)
   window.speechSynthesis.speak(msg);
 }
 
