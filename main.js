@@ -245,12 +245,10 @@ function setCards() {
 }
 
 function pronounce(e) {
-  var msg = new SpeechSynthesisUtterance();
-  msg.text = vocab[i][0];
+  var msg = new SpeechSynthesisUtterance(vocab[i][0]);
   msg.lang = 'ko-KR';
   msg.rate = rate;
-  msg.voice = voice;
-  console.log(msg)
+  // msg.voice = voice;
   window.speechSynthesis.speak(msg);
 }
 
