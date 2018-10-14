@@ -243,12 +243,11 @@ function setCards() {
   window.location.hash = '#'+i;
 }
 
-function pronounce(e) {
-  var msg = new SpeechSynthesisUtterance();
+function pronounce() {
+  var msg = new SpeechSynthesisUtterance(vocab[i][0]);
   msg.lang = 'ko-KR';
-  msg.text = vocab[i][0];
   msg.rate = rate;
-  speechSynthesis.speak(msg);
+  window.speechSynthesis.speak(msg);
 }
 
     function play() {
