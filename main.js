@@ -249,7 +249,7 @@ function pronounce(e) {
   msg.text = vocab[i][0];
   // msg.lang = 'ko-KR';
   msg.rate = rate;
-  msg.voice = voice;
+  // msg.voice = voice;
   console.log(msg)
   window.speechSynthesis.speak(msg);
 }
