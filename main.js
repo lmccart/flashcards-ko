@@ -286,6 +286,7 @@ $(document).ready(function() {
   setCards();
 
   var voices = speechSynthesis.getVoices();
+  console.log(voices)
   for (var v in voices) {
     if (v.name === 'Yuna') {
       console.log(voices[v]);
